@@ -49,6 +49,7 @@ class UrlRepository
     	}
     	
     	$urlShorten->link = substr(str_shuffle("0123456789abcdefghijklmnopqrstvwxyz"), 0, 6);
+        $urlShorten->click_limitation = $request->click_limitation;
     	$urlShorten->expiry_time = $request->expiry_time;
     	$urlShorten->save();
     	return redirect('admin/urlShorten')->with('message', 'Data saved successfully');

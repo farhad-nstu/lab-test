@@ -45,14 +45,10 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        // dd($request->all());
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
             $this->validator($request->all(), 'users')->validate();
-            // $this->throwValidationException(
-            //     $request, $validator
-            // );
         }
 
         Auth::login($this->create($request->all()));
@@ -63,29 +59,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
-            // 'phone' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255', ],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'unique:users', 'regex:/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/i'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'captcha' => ['required', 'captcha'],
         ]);
     }
 
     protected function create(array $data)
     {
         return User::create([
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
-            'phone' => $data['phone'],
+            'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
-    }
-
-    public function reloadCaptcha()
-    {
-        return response()->json(['captcha'=> captcha_img()]);
     }
 }

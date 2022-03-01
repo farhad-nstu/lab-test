@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Log;
 
 class User extends Authenticatable
 {
@@ -15,24 +16,12 @@ class User extends Authenticatable
     protected $table="users";
 
     protected $fillable = [
-        'fb_id',
-        'google_id',
-        'firstname',
-        'lastname',
+        'name',
         'email',
         'phone',
         'password',
         'role',
-        'address',
-        'city',
-        'state',
-        'postcode',
-        'country_id',
-        'birth_date',
-        'parmanent_address',
-        'active',
         'user_photo',
-        'updated_by',
     ];
 
     protected $hidden = [
@@ -43,4 +32,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
 }

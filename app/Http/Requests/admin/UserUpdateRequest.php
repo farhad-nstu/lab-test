@@ -26,8 +26,7 @@ class UserUpdateRequest extends FormRequest
 
         return [
 
-            'firstname'=>'required',
-            'lastname'=>'required',
+            'name'=>'required',
             'email' => "required|unique:users,email,{$this->user->id}",
             'phone' => "required|unique:users,phone,{$this->user->id}",
             'role' => ['required', '', '', '']

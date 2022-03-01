@@ -20,4 +20,9 @@ class FrontController extends Controller
     {
         return $this->data->index();
     }
+
+    public function hit_link(Request $request, $link)
+    {
+        return $this->data->hit_link($request, $link);
+    }
 }

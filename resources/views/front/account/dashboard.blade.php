@@ -219,49 +219,4 @@ textarea {
         </div>
     </div>
 </div>
-
-@push('js')
-    <script>
-        function fetch_order_items(invoice_no) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                type: "post",
-                url : '{{url("account/fetch-order-items")}}',
-                data: {
-                    invoice_no: invoice_no,
-                },
-                success:function(data) {
-                    $('#orderSection').empty().html(data);
-                }
-            });
-        }
-
-        // Track order method
-        function track_order() {
-            let invoice_no = $("#track_invoice_no").val();
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                type: "post",
-                url : '{{url("account/track-order")}}',
-                data: {
-                    invoice_no: invoice_no,
-                },
-                success:function(data) {
-                    $('#trackOrderSection').html(data);
-                }
-            });
-        }
-    </script>
-@endpush
 @endsection

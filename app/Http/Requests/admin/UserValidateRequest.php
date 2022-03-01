@@ -24,8 +24,7 @@ class UserValidateRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstname'=>'required',
-            'lastname'=>'required',
+            'name'=>'required',
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone'=>['required', 'string', '', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6'],
@@ -36,9 +35,8 @@ class UserValidateRequest extends FormRequest
     public function messages()
     {
         return [
-            'firstname.required'=>'Please Enter First Name',
-            'lastname.required'=>'Please Enter Last Name',
-            'role.required'=>'Please Enter Category Name',
+            'name.required'=>'Please Enter First Name',
+            'role.required'=>'Please Enter Role',
         ];
     }
 }

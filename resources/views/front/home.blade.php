@@ -56,7 +56,9 @@ textarea {
                                                     @foreach ($urls as $key => $url)
                                                         <tr>
                                                             <td>{{ ++$key }}</td>
-                                                            <td>{{ $url->link }}</td>
+                                                            <td>
+                                                                <a href="{{ url('/hit-check/'.$url->link) }}">{{ $url->link }}</a>
+                                                            </td>
                                                             <td>{{ $url->expiry_time }}</td>
                                                         </tr>
                                                     @endforeach
@@ -76,4 +78,32 @@ textarea {
         </div>
     </div>
 </div>
+<script>
+    @if(Session::has('message'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+        toastr.success("{{ session('message') }}");
+    @endif
+
+    @if(Session::has('stillBlockMessage'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+        toastr.warning("{{ session('stillBlockMessage') }}");
+    @endif
+
+    @if(Session::has('blockMessage'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+        toastr.error("{{ session('blockMessage') }}");
+    @endif
+</script>
 @endsection

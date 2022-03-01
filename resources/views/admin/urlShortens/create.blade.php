@@ -26,8 +26,13 @@
             <input type="hidden" name="id" class="form-control" value="{{getValue('id', $urlShorten)}}">
 
            <div class="form-group">
-               <label>Expire Date</label>
-               <input type="date" name="expiry_time" class="form-control" value="{{getValue('expiry_time', $urlShorten)}}">
+              <label>Click Limitation</label>
+              <input type="number" name="click_limitation" class="form-control" value="{{getValue('click_limitation', $urlShorten)}}">
+           </div>
+
+           <div class="form-group">
+              <label>Expire Date</label>
+              <input type="date" name="expiry_time" class="form-control" value="{{getValue('expiry_time', $urlShorten)}}">
            </div>
            <button type="submit" class="btn btn-success mt-3 mb-3">Create</button>
         </form>

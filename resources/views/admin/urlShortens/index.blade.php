@@ -27,6 +27,7 @@
                         <tr>
                             <th>No</th>
                             <th>Link</th>
+                            <th>Click Limitation</th>
                             <th>Expire Date</th>
                             <th>Action</th>
                         </tr>
@@ -51,6 +52,7 @@
           columns: [
               {data: 'DT_RowIndex', name: 'DT_RowIndex'},
               {data: 'link', name: 'link'},
+              {data: 'click_limitation', name: 'click_limitation'},
               {data: 'expiry_time', name: 'expiry_time'},
               {
                   data: 'action', 
