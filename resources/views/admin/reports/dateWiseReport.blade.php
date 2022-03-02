@@ -57,7 +57,7 @@
       </div>
 
       <!-- Table Data -->
-      @if(count($logs) > 0)
+      @if(isset($logs) && count($logs) > 0)
         <div class="container card">
           <form method="post" action="{{route('report.export_file')}}">
             @csrf 
@@ -67,12 +67,15 @@
             @endif 
             <div class="form-group row">
               <label class="col-md-2"></label>
-              <div class="col-md-4">
-                <button type="submit" class="btn btn-success mt-3 mb-3">Export File</button>
+              <div class="col-md-1">
+                <button type="submit" class="btn btn-success mt-3 mb-3">CSV</button>
+              </div>
+              <div class="col-md-1">
+                <a href="javascript:void(0)" onclick="print_div('print_area')" class="btn btn-success mt-3 mb-3">PDF</a>
               </div>
             </div>
           </form>
-          <div class="table-responsive">
+          <div class="table-responsive" id="print_area">
             <table class="table table-bordered datatable table-bordered">
               <thead>
                 <tr>
@@ -108,4 +111,16 @@
           </div>
         </div>
       @endif 
+<script>
+  function print_div(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+  }
+</script>
 @endsection

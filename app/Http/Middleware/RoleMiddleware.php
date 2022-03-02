@@ -17,7 +17,7 @@ class RoleMiddleware
     public function handle($request, Closure $next)
     {
         if(!Auth::check()){
-            return redirect()->route('tohfabd.system.login');
+            return redirect()->route('system.login');
         }
         if(Auth::check()){
             if(auth()->user()->role==2){
