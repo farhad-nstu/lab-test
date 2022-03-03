@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2022 at 05:32 PM
+-- Generation Time: Mar 03, 2022 at 07:10 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -105,7 +105,10 @@ INSERT INTO `logs` (`id`, `link`, `user_id`, `ip`, `location`, `latitude`, `long
 (14, 'd91j5c', 1, '5.161.62.218', 'Washington, DC, US', '38.9072', '-77.0369', 'Chrome', 'Windows', 'Desktop', NULL, '2022-03-01 19:15:46', '2022-03-01 19:15:46'),
 (15, 'd91j5c', 1, '5.161.62.218', 'Washington, DC, US', '38.9072', '-77.0369', 'Chrome', 'Windows', 'Desktop', NULL, '2022-03-01 19:21:34', '2022-03-01 19:21:34'),
 (16, 'd91j5c', 1, '5.161.62.218', 'Washington, DC, US', '38.9072', '-77.0369', 'Chrome', 'Windows', 'Desktop', NULL, '2022-03-01 19:21:38', '2022-03-01 19:21:38'),
-(17, 'd91j5c', 1, '5.161.62.218', 'Washington, DC, US', '38.9072', '-77.0369', 'Chrome', 'Windows', 'Desktop', NULL, '2022-03-01 19:21:41', '2022-03-01 19:21:41');
+(17, 'd91j5c', 1, '5.161.62.218', 'Washington, DC, US', '38.9072', '-77.0369', 'Chrome', 'Windows', 'Desktop', NULL, '2022-03-01 19:21:41', '2022-03-01 19:21:41'),
+(18, 'wrz3gv', 1, '5.161.62.218', 'Washington, DC, US', '38.9072', '-77.0369', 'Chrome', 'Windows', 'Desktop', NULL, '2022-03-03 05:30:56', '2022-03-03 05:30:56'),
+(19, 'wrz3gv', 1, '5.161.62.218', 'Washington, DC, US', '38.9072', '-77.0369', 'Chrome', 'Windows', 'Desktop', NULL, '2022-03-03 05:35:34', '2022-03-03 05:35:34'),
+(20, 'wrz3gv', 1, '5.161.62.218', 'Washington, DC, US', '38.9072', '-77.0369', 'Chrome', 'Windows', 'Desktop', NULL, '2022-03-03 05:38:54', '2022-03-03 05:38:54');
 
 -- --------------------------------------------------------
 
@@ -183,7 +186,8 @@ CREATE TABLE `url_shorts` (
 
 INSERT INTO `url_shorts` (`id`, `link`, `click_limitation`, `expiry_time`, `created_at`, `updated_at`) VALUES
 (1, 'd91j5c', NULL, '2022-03-28', '2022-02-26 15:55:38', '2022-02-26 15:55:38'),
-(2, 'w1j9xa', NULL, '2022-02-28', '2022-02-26 15:55:48', '2022-02-26 15:55:48');
+(2, 'w1j9xa', NULL, '2022-02-28', '2022-02-26 15:55:48', '2022-02-26 15:55:48'),
+(3, 'wrz3gv', 3, '2022-03-31', '2022-03-03 05:21:10', '2022-03-03 05:21:10');
 
 -- --------------------------------------------------------
 
@@ -209,7 +213,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `role`, `user_photo`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Mohammad Forhad', 'forhad@gmail.com', '01735693811', '$2y$10$Oa3BHHUPuqi4x5Ey7Kc/lenNRxZRzGK4OgRIBlNRg1dp69SGhjUWm', '1', NULL, NULL, '2022-02-26 15:50:40', '2022-02-26 15:50:40');
+(1, 'Mohammad Forhad', 'forhad@gmail.com', '01735693811', '$2y$10$Oa3BHHUPuqi4x5Ey7Kc/lenNRxZRzGK4OgRIBlNRg1dp69SGhjUWm', '1', NULL, NULL, '2022-02-26 15:50:40', '2022-02-26 15:50:40'),
+(2, 'test-user', 'test-user@gmail.com', '01234123211', '$2y$10$VC1KkkJfp26sw6oZUh6J2e10jPtLWrFEl0CRHjAdIBGWZ/ZGDxvg.', '2', '1646284500.jpeg', NULL, '2022-03-03 05:15:00', '2022-03-03 05:20:19'),
+(3, 'test-2', 'test-2@gmail.com', '0123453211', '$2y$10$ESiQQeEJKoVVT1IfV1uT.ebu6o7/J3hGAT9PFjxwJob9cIRjBkEm2', '2', NULL, NULL, '2022-03-03 05:41:01', '2022-03-03 05:41:01');
 
 --
 -- Indexes for dumped tables
@@ -291,7 +297,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -309,13 +315,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `url_shorts`
 --
 ALTER TABLE `url_shorts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
