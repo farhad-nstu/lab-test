@@ -21,7 +21,7 @@ class FrontRepository
     {      
         $currentDate = date('Y-m-d H:i:s');
         $user_id = Auth::id();
-        $userIpAddress = '5.161.62.218';
+        $userIpAddress = $request->ip();
 
         // Block 5 minutes check
         $checkDate = new DateTime;
