@@ -25,4 +25,9 @@ class FrontController extends Controller
     {
         return $this->data->hit_link($request, $link);
     }
+
+    public function get_qrcode($link)
+    {
+        return $this->data->get_qrcode($link);
+    }
 }

@@ -7,6 +7,7 @@ use Auth;
 use Jenssegers\Agent\Facades\Agent;
 use DateTime;
 use App\Models\BlockList;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class FrontRepository
 {
@@ -77,5 +78,13 @@ class FrontRepository
         $log->device = $device;
         $log->save();
         return back()->with('message', 'You have clicked the link '.$link);
+    }
+
+    public function get_qrcode($link)
+    {
+        $url = url('hit-check'.'/'.$link);
+
+        $qrcode = QrCode::size(400)->generate($url);
+        return view('front.qrCode', compact('qrcode'));
     }
 }
